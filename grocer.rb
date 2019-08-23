@@ -18,7 +18,7 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     coupon_item = coupon[:item]
     if cart[coupon_item][:count] >= 2 && cart.keys.include?(coupon_item)
-      if applied_cart[coupon_item+" W/COUPON"] == nil
+      if applied_cart[coupon_item+" W/COUPON"].nil?
         applied_cart[coupon_item + " W/COUPON"] = {
           :price => coupon[:cost] / coupon[:num], #2.50
           :clearance => cart[coupon_item][:clearance],
